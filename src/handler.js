@@ -111,7 +111,14 @@ const editBookByIdHandler = (request, h) => {
   const { id } = request.params;
 
   const {
-    name, year, author, summary, publisher, pageCount, readPage, reading,
+    name,
+    year,
+    author,
+    summary,
+    publisher,
+    pageCount,
+    readPage,
+    reading,
   } = request.payload;
   const updatedAt = new Date().toISOString();
 
@@ -164,5 +171,5 @@ const editBookByIdHandler = (request, h) => {
 };
 
 module.exports = {
-  addBookHandler, getAllBooksHandler, getBookByIdHandler,
+  addBookHandler, getAllBooksHandler, getBookByIdHandler, editBookByIdHandler,
 };
