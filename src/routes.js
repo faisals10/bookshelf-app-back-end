@@ -3,6 +3,7 @@ const {
   getAllBooksHandler,
   getBookByIdHandler,
   editBookByIdHandler,
+  deleteBookByIdHandler,
 } = require('./handler');
 
 const routes = [
@@ -40,6 +41,16 @@ const routes = [
     method: 'PUT',
     path: '/books/{id}',
     handler: editBookByIdHandler,
+    options: {
+      cors: {
+        origin: ['*'],
+      },
+    },
+  },
+  {
+    method: 'DELETE',
+    path: '/books/{id}',
+    handler: deleteBookByIdHandler,
     options: {
       cors: {
         origin: ['*'],
