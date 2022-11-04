@@ -72,6 +72,7 @@ const getAllBooksHandler = (request, h) => {
   const {
     name,
     reading,
+    finished,
   } = request.query;
 
   let n = books;
@@ -79,8 +80,13 @@ const getAllBooksHandler = (request, h) => {
   if (name !== undefined) {
     n = books.filter((b) => b.name.toLowerCase().includes(name.toLowerCase()));
   }
+
   if (reading !== undefined) {
     n = books.filter((b) => Number(b.reading) === Number(reading));
+  }
+
+  if (finished !== undefined) {
+    n = books.filter((b) => Number(b.finished) === Number(finished));
   }
 
   const response = h.response({
