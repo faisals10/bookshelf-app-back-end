@@ -82,11 +82,11 @@ const getAllBooksHandler = (request, h) => {
   }
 
   if (reading !== undefined) {
-    n = n.filter((book) => Boolean(book.reading) === Boolean(reading));
+    n = n.filter((book) => Number(book.reading) === Number(reading));
   }
 
   if (finished !== undefined) {
-    n = n.filter((book) => Boolean(book.finished) === Boolean(finished));
+    n = n.filter((book) => Number(book.finished) === Number(finished));
   }
 
   const response = h.response({
